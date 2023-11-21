@@ -1,0 +1,8 @@
+{
+    "users": [
+        {"id": 1, "email": "user@c-i-portal.com", "password": "Test@123", "firstName": "First Name", "lastName":"Last Name"}
+    ],
+    "inspections": [
+        {"user":1, "inspectionDate": "11/21/2023", "img":"/images/image.jpeg", "make": "Nissan", "model": "Sunny", "year":2020, "comments":"ASAP plz" }
+    ]
+}
