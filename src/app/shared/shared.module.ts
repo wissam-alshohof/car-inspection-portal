@@ -1,18 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout/layout.component';
+import { SvgComponent } from './svg/svg.component';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
-    LayoutComponent
+    LayoutComponent,
+    SvgComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports:[
-    LayoutComponent
+    LayoutComponent,
+    SvgComponent,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

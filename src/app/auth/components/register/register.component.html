@@ -1,0 +1,13 @@
+<app-layout></app-layout>
+<div class="flex absolute bg-grey p-10 flex-row mx-2 mt-10 translate-y-[75vw] rounded-md" [ngClass]="{'translate-y-[5vw] [transition:transform_800ms]':layoutService.applyBlur$ | async}">
+    <form [formGroup]="form" class="flex flex-col gap-8">
+        <button class="bg-royal p-8 py-4 rounded-sm" (click)="register()">Register</button>
+        <button class="bg-gold p-8 py-4 rounded-sm">Login</button>
+
+        <div class="flex flex-col h-0 opacity-0" [ngClass]="{'!h-[200px]  opacity-100 [transition:all_800ms]':layoutService.applyBlur$ | async}">
+            <input type="text" formControlName="username" />
+            <input type="email" formControlName="email" />
+            <input type="password" formControlName="password" />
+        </div>
+    </form>
+</div>
