@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './components/register/register.component';
 import { Route, RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { AuthModule as Auth } from '@angular/fire/auth';
 
 
 const routes: Route[] = [
@@ -15,7 +16,8 @@ const routes: Route[] = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    Auth
   ]
 })
 export class AuthModule { }
