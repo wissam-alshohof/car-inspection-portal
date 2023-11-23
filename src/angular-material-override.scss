@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mat-mdc-form-field.mat-form-field-appearance-outline {
+    input {
+        @apply caret-royal;
+    }
+
+    /* Invalid */
+    &.mat-form-field-invalid {
+
+        .mdc-notched-outline__leading,
+        .mdc-notched-outline__notch,
+        .mdc-notched-outline__trailing {
+            border-color: crimson !important;
+
+            mat-label,
+            label {
+                color: crimson !important;
+            }
+        }
+    }
+
+    /* Focused */
+    &.mat-focused:not(.mat-form-field-invalid) {
+
+        /* Primary */
+        &.mat-primary {
+
+            .mdc-notched-outline__leading,
+            .mdc-notched-outline__notch,
+            .mdc-notched-outline__trailing {
+                // border-color: $focusedColor !important;
+
+                mat-label,
+                label {
+                    @apply text-blue;
+                }
+            }
+        }
+
+    }
+
+    &:not(.mat-focused):not(.mat-form-field-invalid) {
+
+        &.ng-touched.ng-dirty .mdc-notched-outline__notch {
+
+            mat-label,
+            label {
+               @apply text-royal;
+            }
+        }
+    }
+
+
+    /* Remove the extra border on the right side of the notch */
+    /* Tailwind's global border setter causes this issue */
+    .mat-mdc-text-field-wrapper {
+
+        .mat-mdc-form-field-flex {
+
+            .mdc-notched-outline {
+
+                .mdc-notched-outline__notch {
+                    border-right-style: none !important;
+                    border-left-style: none !important;
+                }
+            }
+        }
+    }
+}

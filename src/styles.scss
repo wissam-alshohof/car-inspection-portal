@@ -1,19 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@use 'angular-material-override';
 
-* {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+@layer utilities {
+    .tw-btn-primary {
+        @apply bg-royal p-8 py-4 rounded-md text-white;
+    }
 }
 .logo-fade-in {
-    @apply absolute w-[200px] h-[200px] top-1/3 left-[calc(50vw-100px)] -translate-y-1/2 sm:left-[calc(75vw-128px)] sm:w-64 sm:h-64;
+    @apply absolute w-[200px] h-[200px] top-1/3 left-[calc(50vw-100px)] -translate-y-1/2 sm:left-[calc(75vw-128px)] sm:w-64 sm:h-64 lg:left-[calc(75vw-200px)] lg:w-[25rem] lg:h-[25rem];
 }
 .background-img {
     @apply bg-center bg-contain bg-no-repeat;
 }
 .background-ease-left {
-    @apply bg-[url(/assets/images/background.png)] absolute w-[270px] h-[270px] top-1/2 left-[calc(50vw-135px)] -translate-y-1/2 sm:-translate-y-[40%] sm:left-[calc(75vw-180px)] sm:w-[360px] sm:h-[360px];
+    @apply bg-[url(/assets/images/background.png)] absolute w-[270px] h-[270px] top-1/2 left-[calc(50vw-135px)] -translate-y-[55%] sm:-translate-y-[40%] sm:left-[calc(75vw-180px)] sm:w-[360px] sm:h-[360px] lg:-translate-y-[30%] lg:left-[calc(75vw-300px)] lg:w-[600px] lg:h-[600px];
+}
+// html, body { height: 100%; }
+body { box-sizing: border-box; margin: 0;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
