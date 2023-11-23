@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "car-inspection-portal"
+  },
+  "targets": {
+    "car-inspection-portal": {
+      "hosting": {
+        "car-inspection-portal": [
+          "car-inspection-portal"
+        ]
+      }
+    }
   }
 }
