@@ -1,19 +1,40 @@
+<mat-toolbar class="toolbar" *ngIf="!(showSidebar | async)">
+    <div class="flex justify-start items-center -ms-4">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <div class="py-5">Car Inspection</div>
+    </div>
 
-<mat-sidenav-container class="absolute top-0 left-0">
-    <mat-sidenav fixedInViewport [opened]="true" class="side-nav">
+    <div class="w-12 h-12 my-2 mx-10 cursor-pointer flex-grow-0 flex-shrink-0">
+        <app-svg name="logo" [routerLink]="'/dashboard'" class="focus:outline-none"></app-svg>
+    </div>
+</mat-toolbar>
+<mat-menu #menu="matMenu">
+    <div>
+        <app-menu-item *ngFor="let item of items" [item]="item"></app-menu-item>
+    </div>
+    <div class="w-full h-12 flex  content-center items-center text-white bg-blue hover:bg-grey hover:text-royal hover:font-medium cursor-pointer transition-colors [transition-duration:400ms]"
+        (click)="signOut()">
+        <div class="text-sm m-auto">Sign out</div>
+    </div>
+</mat-menu>
+<mat-sidenav-container class="absolute top-0 left-0" hasBackdrop="false">
+    <mat-sidenav fixedInViewport [opened]="true" class="side-nav" disableClose mode="push" *ngIf="showSidebar | async">
         <div>
             <div class="w-24 h-24 my-8 mx-10 cursor-pointer">
                 <app-svg name="logo" [routerLink]="'/dashboard'" class="focus:outline-none"></app-svg>
             </div>
             <app-sidebar-item *ngFor="let item of items" [item]="item"></app-sidebar-item>
         </div>
-            
-            <div class="w-full h-16 flex  content-center items-center text-white bg-blue hover:bg-grey hover:text-royal hover:font-medium cursor-pointer transition-colors [transition-duration:400ms]" (click)="signOut()">
-                <div class="text-lg m-auto">Sign out</div>
-            </div>
+
+        <div class="w-full h-16 flex  content-center items-center text-white bg-blue hover:bg-grey hover:text-royal hover:font-medium cursor-pointer transition-colors [transition-duration:400ms]"
+            (click)="signOut()">
+            <div class="text-lg m-auto">Sign out</div>
+        </div>
 
     </mat-sidenav>
-
-    <mat-sidenav-content>
+    <mat-sidenav-content class="p-10 content">
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
-  </mat-sidenav-container>
+</mat-sidenav-container>

@@ -1,3 +1,10 @@
 .side-nav {
-    @apply h-full bg-blue flex;
+    @apply h-full bg-blue hidden sm:flex ;
+}
+
+.toolbar {
+    @apply sm:hidden flex justify-between bg-blue text-white;
+}
+.content {
+    @apply bg-[#f5f5f5] h-screen bg-[url(/assets/images/logo.png)] bg-no-repeat bg-auto bg-blend-difference  bg-center;
 }

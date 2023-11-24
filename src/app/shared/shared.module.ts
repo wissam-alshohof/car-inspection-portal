@@ -9,6 +9,8 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { InputComponent } from './input/input.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -25,7 +27,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule
   ],
   exports:[
     LayoutComponent,
@@ -35,7 +39,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatButtonModule,
     InputComponent,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule
   ]
 })
 export class SharedModule { }
