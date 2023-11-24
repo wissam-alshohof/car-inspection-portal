@@ -24,3 +24,12 @@ body { box-sizing: border-box; margin: 0;
 .mat-mdc-form-field-error-wrapper {
     z-index: 1;
 }
+.mat-drawer-inner-container {
+    display: flex;
+    flex-direction: column ;
+    justify-content: space-between ;
+}
+
+app-sidebar-item:last-child .item {
+    border-bottom-width: 0px;
+}

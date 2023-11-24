@@ -7,7 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   template: `<span [innerHTML]="svgIcon"></span>`,
 })
 export class SvgComponent implements OnChanges {
-  @Input()
+  @Input({required:true})
   public name?: string;
 
   public svgIcon: any;

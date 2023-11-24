@@ -8,6 +8,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { InputComponent } from './input/input.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 
@@ -23,7 +24,8 @@ import { InputComponent } from './input/input.component';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule
   ],
   exports:[
     LayoutComponent,
@@ -32,7 +34,8 @@ import { InputComponent } from './input/input.component';
     MatInputModule,
     MatButtonModule,
     InputComponent,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule
   ]
 })
 export class SharedModule { }

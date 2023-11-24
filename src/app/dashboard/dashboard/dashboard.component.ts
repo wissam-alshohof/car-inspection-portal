@@ -10,6 +10,11 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class DashboardComponent {
   authService = inject(AuthService);
   router = inject(Router);
+
+    items : {name:string, link:string}[] = [
+      {name: "Dashboard", link:'/dashboard'},
+      {name: "Add New Inspection", link:'/dashboard/inspection'},
+    ];
   signOut() {
     this.authService.signOut().then(
      () => this.router.navigateByUrl('')
