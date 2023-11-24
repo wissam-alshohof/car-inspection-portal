@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, UserCredential, signOut } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Observable, from, map, of } from "rxjs";
+import { InterceptorService } from '../interceptor.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
     return from(this.token ? this.token : of(null)).pipe(map(value => !!value))
   }
 
-  constructor(public auth: Auth) { }
+  constructor(public auth: Auth, private loadingService: InterceptorService) { }
   private _userCredential!: Pick<UserCredential, 'user'> & { user: { idToken?: string, accessToken?: string } } | null;
   get userCredential() {
     return this._userCredential || JSON.parse(localStorage.getItem('userCredential') ?? JSON.stringify({ user: null }))
@@ -28,17 +29,32 @@ export class AuthService {
     }
   }
   signIn(email: string, password: string) {
+    this.loadingService.showLoader();
     return signInWithEmailAndPassword(this.auth, email, password).then(
       (result: UserCredential) => {
         this.userCredential = { user: result.user };
+        this.loadingService.hideLoader();
       }
-    ).then(_ => console.log(this.userCredential));
+    ).catch(error => {
+      this.loadingService.hideLoader()
+    });
 
   }
   signup(email: string, password: string, userName: string) {
-    return createUserWithEmailAndPassword(this.auth, email, password).then(
-      (user: any) => updateProfile(user.user, { displayName: userName })
-    );
+    this.loadingService.showLoader();
+    return createUserWithEmailAndPassword(this.auth, email, password)
+    .catch(error => {
+      this.loadingService.hideLoader();
+    })
+    .then(
+      (user: any) => {
+        
+        this.loadingService.hideLoader();
+        return updateProfile(user.user, { displayName: userName });
+      }
+      ).catch(error => {
+        this.loadingService.hideLoader()
+      });
   }
 
   signOut() {

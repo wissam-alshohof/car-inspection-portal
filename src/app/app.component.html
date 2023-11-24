@@ -1,1 +1,12 @@
 <router-outlet></router-outlet>
+<ng-container *ngIf="loading$ | async">
+    <div class="h-full w-full fixed filter bg-grey opacity-40 z-40">
+    </div>
+    <img src="/assets/images/wheel.gif" alt="loader"
+    class="fixed opacity-100 w-[30px] h-[22.5px] sm:w-[60px] sm:h-[45px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
+    <div
+    style="text-shadow: 0 0 10px black;"
+    class="w-[10vh] flex flex-col items-center justify-end text-white h-[10vh] sm:w-[20vh] opacity-100 sm:h-[20vh] fixed top-[calc(50%-5vh)] sm:top-[calc(50%-10vh)] left-[calc(50%-5vh)] sm:left-[calc(50%-10vh)]  rounded-full border-gold z-50">
+    Loading..
+</div>
+</ng-container>

@@ -5,6 +5,7 @@ import { SvgComponent } from './svg/svg.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from "@angular/material/input";
+import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { InputComponent } from './input/input.component';
 
@@ -21,7 +22,8 @@ import { InputComponent } from './input/input.component';
     RouterModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   exports:[
     LayoutComponent,
@@ -30,6 +32,7 @@ import { InputComponent } from './input/input.component';
     MatInputModule,
     MatButtonModule,
     InputComponent,
+    MatIconModule
   ]
 })
 export class SharedModule { }
