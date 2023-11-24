@@ -14,8 +14,9 @@ import { ControlContainer, FormControl, FormGroup } from '@angular/forms';
 export class InputComponent implements OnInit {
 
 
-  @Input() label:string ="";
-  @Input() keyName : string = "";
+  @Input({required:true}) label:string ="";
+  @Input({required:true}) keyName : string = "";
+  @Input({required:true}) type : string = "";
 
   _parentContainer =inject(ControlContainer);
 

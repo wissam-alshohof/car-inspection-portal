@@ -14,20 +14,22 @@
             </div>
         </div>
 
-        <form [@leftUp300]="layoutService.applyBlur$ | async" *ngIf="!onLogin && (layoutService.applyBlur$ | async)"
+        <form [@leftUp380]="layoutService.applyBlur$ | async" *ngIf="!onLogin && (layoutService.applyBlur$ | async)"
             [formGroup]="form" class="flex flex-col gap-10">
 
             <app-input type="text" keyName="username" label="Username" />
             <app-input type="email" keyName="email" label="Email" />
             <app-input type="password" keyName="password" label="Password" />
-            <button class="tw-btn-primary" (click)="signup()">Sign up</button>
+            <button [disabled]="form.invalid" class="tw-btn-primary" (click)="form.valid && signup()">Sign up</button>
+            <mat-icon aria-hidden="false" class="text-royal m-auto text-2xl cursor-pointer" (click)="reset()" fontIcon="subdirectory_arrow_left"></mat-icon>
         </form>
-        <form [@leftUp190]="layoutService.applyBlur$ | async" *ngIf="onLogin && (layoutService.applyBlur$ | async)"
-            [formGroup]="form" class="flex flex-col gap-8">
+        <form [@leftUp270]="layoutService.applyBlur$ | async" *ngIf="onLogin && (layoutService.applyBlur$ | async)"
+            [formGroup]="form" #signin class="flex flex-col gap-8">
 
             <app-input type="email" keyName="email" keyName="email" label="Email" />
             <app-input type="password" keyName="password" keyName="password" label="Password" />
-            <button class="tw-btn-primary" (click)="login()">Login</button>
+            <button [disabled]="!(form.controls.email.valid && form.controls.password.valid)" class="tw-btn-primary flex-grow-0" (click)="login()">Login</button>
+            <mat-icon aria-hidden="false" class="text-royal m-auto text-2xl cursor-pointer" (click)="reset()" fontIcon="subdirectory_arrow_left"></mat-icon>
         </form>
     </div>
 </div>

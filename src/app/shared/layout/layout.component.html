@@ -1,8 +1,8 @@
-<div class="bg-blue absolute z-0 w-screen h-screen" [ngClass]="{'filter blur-sm [transition:filter_800ms]': applyBlur$ | async}">
-    <div @fadeIn class="logo-fade-in">
+<div class="bg-blue absolute w-screen h-screen overflow-hidden" [ngClass]="{'filter blur-sm [transition:filter_800ms]': applyBlur$ | async}">
+    <div @rise class="logo-fade-in over">
         <app-svg name="logo"></app-svg>
     </div>
-    <div @easeLeft
-        class="background-img background-ease-left">
+    <div @easeRight
+        class="background-img background-ease-right over">
     </div>
 </div>
