@@ -2,7 +2,10 @@
 
 @layer utilities {
     .tw-btn-primary {
-        @apply bg-royal p-8 py-4 rounded-md text-white;
+        @apply bg-royal p-8 py-4 rounded-md text-white disabled:cursor-not-allowed disabled:bg-orange-300 disabled:text-blue;
+    }
+    .tw-mat-error {
+        @apply bg-grey rounded-md rounded-ss-none pt-0.5 p-1 shadow-md shadow-[crimson];
     }
 }
 .logo-fade-in {
@@ -11,10 +14,13 @@
 .background-img {
     @apply bg-center bg-contain bg-no-repeat;
 }
-.background-ease-left {
+.background-ease-right {
     @apply bg-[url(/assets/images/background.png)] absolute w-[270px] h-[270px] top-[50vh] left-[calc(50vw-135px)] -translate-y-[50%] sm:-translate-y-[40%] sm:left-[calc(75vw-180px)] sm:w-[360px] sm:h-[360px] lg:-translate-y-[25%] lg:left-[calc(75vw-200px)] lg:w-[400px] lg:h-[400px];
 }
 html, body { height: 100%; }
 body { box-sizing: border-box; margin: 0;
     font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.mat-mdc-form-field-error-wrapper {
+    z-index: 1;
 }
