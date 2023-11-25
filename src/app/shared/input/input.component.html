@@ -1,15 +1,16 @@
-<mat-form-field class=" text-royal caret-royal z-10">
+<mat-form-field class=" text-royal caret-royal z-10 w-full">
     <mat-label class=" text-royal caret-royal"> {{ label }}</mat-label>
-    <input matInput class="bg-grey" [formControlName]="keyName" [type]="type" />
-    <mat-error *ngIf="parentGroup.controls[keyName].hasError('required')" class="tw-mat-error">
+    <input matInput class="bg-grey" [formControlName]="keyName" [type]="type" *ngIf="type != 'textarea'" />
+    <textarea matInput cdkTextareaAutosize="false" class="bg-grey" [formControlName]="keyName" *ngIf="type == 'textarea'"></textarea>
+    <mat-error *ngIf="parentGroup.controls[keyName].hasError('required') && parentGroup.controls[keyName].touched" class="tw-mat-error">
         This field is required
     </mat-error>
-    <mat-error *ngIf="!parentGroup.controls[keyName].hasError('required') && parentGroup.controls[keyName].hasError('password')" class="tw-mat-error">
+    <mat-error *ngIf="!parentGroup.controls[keyName].hasError('required') && parentGroup.controls[keyName].hasError('password') && parentGroup.controls[keyName].touched" class="tw-mat-error">
         {{ 
             parentGroup.controls[keyName].getError('password')
         }}
     </mat-error>
-    <mat-error *ngIf="!parentGroup.controls[keyName].hasError('required') && parentGroup.controls[keyName].hasError('pattern') && type=='email'" class="tw-mat-error">
+    <mat-error *ngIf="!parentGroup.controls[keyName].hasError('required') && parentGroup.controls[keyName].hasError('pattern') && type=='email' && parentGroup.controls[keyName].touched" class="tw-mat-error">
             Please provide a valid email
     </mat-error>
 </mat-form-field>

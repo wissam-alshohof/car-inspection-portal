@@ -5,7 +5,7 @@ import { ControlContainer, FormControl, FormGroup } from '@angular/forms';
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
-  providers: [ ],
+  providers: [],
   viewProviders: [
     { provide: ControlContainer,
       useFactory: () => inject(ControlContainer, {skipSelf:true})}
