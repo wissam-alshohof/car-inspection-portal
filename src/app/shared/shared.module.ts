@@ -12,51 +12,51 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { YearPickerComponent } from './year-picker/year-picker.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 
-
+const MODULES = [
+  MatInputModule,
+  MatButtonModule,
+  MatIconModule,
+  MatSidenavModule,
+  MatToolbarModule,
+  MatMenuModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatSnackBarModule
+];
 @NgModule({
   declarations: [
     LayoutComponent,
     SvgComponent,
     InputComponent,
     DatePickerComponent,
-    YearPickerComponent
+    YearPickerComponent,
+    SnackbarComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatDatepickerModule,
-    MatNativeDateModule
+    MODULES
   ],
-  exports:[
+  exports: [
     LayoutComponent,
     SvgComponent,
     ReactiveFormsModule,
-    MatInputModule,
-    MatButtonModule,
     InputComponent,
-    MatIconModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
     DatePickerComponent,
-    YearPickerComponent
+    YearPickerComponent,
+    SnackbarComponent,
+    MODULES
   ],
   providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'en-Gb'},
+    { provide: MAT_DATE_LOCALE, useValue: 'en-Gb' },
   ]
 })
 export class SharedModule { }

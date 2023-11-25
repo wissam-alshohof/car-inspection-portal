@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { collection, getFirestore, doc, query, setDoc, getDocs } from "@angular/fire/firestore";
 import { InterceptorService } from '../interceptor.service';
+import { ToastService } from '../shared/toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,22 +10,21 @@ export class InspectionService {
   private db = getFirestore()
   private inspectionRef = collection(this.db, "inspections");
   private _query = query(collection(this.db, "inspections"));
-  constructor(private loaderService: InterceptorService) { }
+  constructor(private loaderService: InterceptorService, private toast: ToastService) { }
   getInspections() {
 
     this.loaderService.showLoader();
-    getDocs(this._query)
-    .then(data => {
-      let result :any[] = [];
-      this.loaderService.hideLoader();
-      if(data.docs.length > 0) result = data.docs.map(doc => doc.data())
-      console.log(result);
-    }).catch(
-      error => {
-        console.log(error);
+    return getDocs(this._query)
+      .then(data => {
+        let result: any[] = [];
         this.loaderService.hideLoader();
-      }
-    )
+        if (data.docs.length > 0) result = data.docs.map(doc => doc.data())
+      }).catch(
+        error => {
+          this.toast.showError(error.msg);
+          this.loaderService.hideLoader();
+        }
+      )
   }
 
   addInspection(inspection: Inspection) {
@@ -32,12 +32,13 @@ export class InspectionService {
     return setDoc(doc(this.inspectionRef), inspection)
       .then(
         data => {
+          this.toast.showSuccess("New Inspection Added");
           this.loaderService.hideLoader();
         }
       )
       .catch(
         error => {
-          console.log(error);
+          this.toast.showError(error.msg);
           this.loaderService.hideLoader();
         }
       )

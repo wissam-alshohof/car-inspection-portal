@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { InspectionService } from '../../inspection.service';
 
@@ -7,12 +7,15 @@ import { InspectionService } from '../../inspection.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   name = "";
 
-  constructor(private authService: AuthService, private inspectionService: InspectionService) {
+  constructor(
+    private authService: AuthService, 
+    private inspectionService: InspectionService) {  }
+
+  ngOnInit(): void {
     this.name = this.authService.userCredential.user.displayName;
     this.inspectionService.getInspections()
-
   }
 }

@@ -1,0 +1,15 @@
+::ng-deep.error app-snackbar {
+    background-color: grey !important;
+    display: flex !important;
+    color: rgb(185,28,28) !important;
+}
+
+::ng-deep.success app-snackbar {
+    background-color: royalblue !important;
+    display: flex !important;
+    color: white !important;
+    .mdc-button__label {
+        color: white !important;
+
+    }
+}
