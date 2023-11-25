@@ -9,6 +9,8 @@ import { HomeComponent } from './components/home/home.component';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import {MatTableModule} from '@angular/material/table';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
+import { NgApexchartsModule } from "ng-apexcharts";
 
 
 const routes: Route[] = [
@@ -28,14 +30,16 @@ const routes: Route[] = [
     SidebarItemComponent,
     NewInspectionComponent,
     HomeComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    PieChartComponent,
   ],
   imports: [
     CommonModule,
     SharedModule,
     RouterModule.forChild(routes),
     LayoutModule,
-    MatTableModule
+    MatTableModule,
+    NgApexchartsModule
   ]
 })
 export class DashboardModule { }

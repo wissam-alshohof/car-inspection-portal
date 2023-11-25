@@ -17,6 +17,7 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
 import { YearPickerComponent } from './year-picker/year-picker.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackbarComponent } from './snackbar/snackbar.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 const MODULES = [
@@ -28,7 +29,8 @@ const MODULES = [
   MatMenuModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatTableModule
 ];
 @NgModule({
   declarations: [
