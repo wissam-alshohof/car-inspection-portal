@@ -8,6 +8,7 @@ import { NewInspectionComponent } from './components/new-inspection/new-inspecti
 import { HomeComponent } from './components/home/home.component';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import {LayoutModule} from '@angular/cdk/layout';
+import {MatTableModule} from '@angular/material/table';
 
 
 const routes: Route[] = [
@@ -33,7 +34,8 @@ const routes: Route[] = [
     CommonModule,
     SharedModule,
     RouterModule.forChild(routes),
-    LayoutModule
+    LayoutModule,
+    MatTableModule
   ]
 })
 export class DashboardModule { }

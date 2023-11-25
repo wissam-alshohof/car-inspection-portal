@@ -12,7 +12,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { YearPickerComponent } from './year-picker/year-picker.component';
 
@@ -54,6 +54,9 @@ import { YearPickerComponent } from './year-picker/year-picker.component';
     MatNativeDateModule,
     DatePickerComponent,
     YearPickerComponent
+  ],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'en-Gb'},
   ]
 })
 export class SharedModule { }
