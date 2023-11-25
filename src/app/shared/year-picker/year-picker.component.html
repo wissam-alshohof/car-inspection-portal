@@ -1,0 +1,10 @@
+<mat-form-field class=" text-royal caret-royal z-10 w-full">
+    <mat-label class=" text-royal caret-royal"> {{ label }}</mat-label>
+    <input matInput [formControlName]="keyName" [matDatepicker]="picker">
+
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker  startView="multi-year" [startAt]="startDate" (yearSelected)="onYearSelected($event,picker)"></mat-datepicker>
+    <mat-error *ngIf="parentGroup.controls[keyName].hasError('required') && parentGroup.controls[keyName].touched" class="tw-mat-error">
+        This field is required
+    </mat-error>
+</mat-form-field>

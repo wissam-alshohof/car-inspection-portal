@@ -11,6 +11,10 @@ import { InputComponent } from './input/input.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { DatePickerComponent } from './date-picker/date-picker.component';
+import { YearPickerComponent } from './year-picker/year-picker.component';
 
 
 
@@ -18,7 +22,9 @@ import { MatMenuModule } from '@angular/material/menu';
   declarations: [
     LayoutComponent,
     SvgComponent,
-    InputComponent
+    InputComponent,
+    DatePickerComponent,
+    YearPickerComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +35,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports:[
     LayoutComponent,
@@ -41,7 +49,11 @@ import { MatMenuModule } from '@angular/material/menu';
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    DatePickerComponent,
+    YearPickerComponent
   ]
 })
 export class SharedModule { }
