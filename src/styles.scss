@@ -1,8 +1,11 @@
 @use 'angular-material-override';
 
 @layer utilities {
+    .tw-btn {
+        @apply p-8 py-4 rounded-md disabled:cursor-not-allowed disabled:bg-orange-300 disabled:text-blue;
+    }
     .tw-btn-primary {
-        @apply bg-royal p-8 py-4 rounded-md text-white disabled:cursor-not-allowed disabled:bg-orange-300 disabled:text-blue;
+        @apply tw-btn bg-royal  text-white ;
     }
     .tw-mat-error {
         @apply bg-grey rounded-md rounded-ss-none pt-0.5 p-1 shadow-md shadow-[crimson];

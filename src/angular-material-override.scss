@@ -9,18 +9,18 @@
 
     /* Invalid */
     &.mat-form-field-invalid {
-
         .mdc-notched-outline__leading,
         .mdc-notched-outline__notch,
         .mdc-notched-outline__trailing {
             border-color: crimson !important;
-
+            
             mat-label,
             label {
                 color: crimson !important;
             }
         }
     }
+   
 
     /* Focused */
     &.mat-focused:not(.mat-form-field-invalid) {
@@ -68,5 +68,14 @@
                 }
             }
         }
+    }
+}
+
+// fixing border-color default fo formfields after reset/submit
+.mat-form-field-invalid.ng-untouched {
+
+    .mdc-text-field--filled.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-line-ripple::before ,
+    .mdc-text-field--filled.mdc-text-field--invalid:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+        border-bottom-color: grey !important;   
     }
 }
