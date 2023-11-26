@@ -18,6 +18,7 @@ import { YearPickerComponent } from './year-picker/year-picker.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 const MODULES = [
@@ -30,7 +31,8 @@ const MODULES = [
   MatDatepickerModule,
   MatNativeDateModule,
   MatSnackBarModule,
-  MatTableModule
+  MatTableModule,
+  MatTooltipModule
 ];
 @NgModule({
   declarations: [
